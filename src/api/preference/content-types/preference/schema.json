@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preferences",
+  "info": {
+    "singularName": "preference",
+    "pluralName": "preferences",
+    "displayName": "Preference"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client",
+      "inversedBy": "preference"
+    },
+    "marketingPreference": {
+      "type": "boolean",
+      "default": false
+    },
+    "categoryPrefernce": {
+      "type": "string"
+    },
+    "wishlist": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "preference"
+    }
+  }
+}

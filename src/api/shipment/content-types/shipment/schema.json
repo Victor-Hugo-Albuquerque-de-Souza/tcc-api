@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipments",
+  "info": {
+    "singularName": "shipment",
+    "pluralName": "shipments",
+    "displayName": "Shipment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shipmentTime": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "shipmentPrice": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "shipmentType": {
+      "type": "enumeration",
+      "enum": [
+        "PAC",
+        "SEDEX",
+        "mototaxi",
+        "retirada",
+        "transportadora",
+        "entrega em mãos"
+      ],
+      "required": true,
+      "default": "entrega em mãos"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "shipment"
+    }
+  }
+}

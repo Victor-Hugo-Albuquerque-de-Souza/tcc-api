@@ -1,0 +1,120 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stock": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "profit": {
+      "type": "decimal",
+      "required": false,
+      "default": 0
+    },
+    "weight": {
+      "type": "float"
+    },
+    "dimensions": {
+      "type": "json"
+    },
+    "availability": {
+      "type": "boolean",
+      "default": false
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "default": 1
+    },
+    "customAttributes": {
+      "type": "json"
+    },
+    "uuid": {
+      "type": "uid"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "products"
+    },
+    "restocks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::restock.restock",
+      "mappedBy": "products"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    },
+    "wishlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "products"
+    },
+    "images": {
+      "type": "json"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "sexshop",
+        "moda íntima",
+        "moda feminina",
+        "maquiagem"
+      ]
+    },
+    "subcategory": {
+      "type": "enumeration",
+      "enum": [
+        "cosméticos",
+        "vibradores",
+        "pênis de borracha",
+        "sexo anal",
+        "fantasias",
+        "moda sensual",
+        "acessórios",
+        "higiene e banho",
+        "sado",
+        "brincadeiras"
+      ]
+    }
+  }
+}
